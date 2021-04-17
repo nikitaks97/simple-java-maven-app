@@ -26,4 +26,5 @@ jobs:
     - name: SonarCloud Scan
      # You may pin to the exact commit or the version.
      # uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
-      run: mvn sonar:sonar -Dsonar.organization=cloiud-mk -Dsonar.projectKey=my-projectkey -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.token=login=${{ secrets.SONARQUBE_TOKEN}}
+     # run: mvn sonar:sonar -Dsonar.organization=cloiud-mk -Dsonar.projectKey=my-projectkey -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARQUBE_TOKEN}}
+      run: mvn sonar:sonar -Dsonar.organization=cloiud-mk -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=${{ secrets.SONARQUBE_TOKEN}}
