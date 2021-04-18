@@ -22,6 +22,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
+      env:
+        ADO_ARTIFACTS_USERNAME: ${{ secrets.ADO_ARTIFACTS_USERNAME }}
+        ADO_ARTIFACTS_TOKEN: ${{ secrets.ADO_ARTIFACTS_TOKEN }}
       run: mvn -s ./settings.xml -B package deploy --file pom.xml
     - name: SonarCloud Scan
       env:
