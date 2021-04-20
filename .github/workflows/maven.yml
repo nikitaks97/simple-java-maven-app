@@ -5,7 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev ]
   pull_request:
     branches: [ master ]
 
@@ -20,9 +20,10 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Test Package
-      run: java -jar /home/runner/work/simple-java-maven-app/simple-java-maven-app/target/my-app-1.0-SNAPSHOT.jar
+      env:
+        ADO_ARTIFACTS_USERNAME: ${{ secrets.ADO_ARTIFACTS_USERNAME }}
+        ADO_ARTIFACTS_TOKEN: ${{ secrets.ADO_ARTIFACTS_TOKEN }}
+      run: mvn -s ./settings.xml -B package deploy --file pom.xml
     - name: SonarCloud Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
