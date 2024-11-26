@@ -24,7 +24,7 @@ jobs:
       env:
         ADO_ARTIFACTS_USERNAME: ${{ secrets.ADO_ARTIFACTS_USERNAME }}
         ADO_ARTIFACTS_TOKEN: ${{ secrets.ADO_ARTIFACTS_TOKEN }}
-      run: mvn -s ./settings.xml -B package deploy --file pom.xml
+      run: mvn -s ./settings.xml -B package install --file pom.xml
     - name: SonarCloud Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
