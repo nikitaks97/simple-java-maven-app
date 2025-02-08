@@ -37,8 +37,8 @@ jobs:
           # SSH into the EC2 instance and start the application
           ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} << 'EOF'
             # Install Java and Maven if not already installed on EC2
-            sudo yum update -y
-            sudo yum install java-17-openjdk maven -y
+           #sudo yum update -y
+            #sudo yum install java-17-openjdk maven -y
 
             # Run the Java application in the background
             nohup java -jar /home/${{ secrets.EC2_USER }}/app.jar > /home/${{ secrets.EC2_USER }}/app.log 2>&1 &
