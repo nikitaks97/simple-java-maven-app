@@ -48,4 +48,3 @@ jobs:
         run: |
            ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} "curl -Is http://localhost:8080 | head -n 1"
 
-
