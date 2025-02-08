@@ -1,0 +1,52 @@
+name: Build and Deploy Java App to AWS EC2
+
+on:
+  push:
+    branches:
+      - main  # Trigger the pipeline when code is pushed to the main branch
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest  # This will run on an Ubuntu VM in GitHub Actions
+    
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      - name: Set Up Java and Maven in GitHub Actions
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # OpenJDK distribution
+          java-version: '17'       # Set the version of Java
+          
+      - name: Build with Maven
+        run: mvn clean package -DskipTests  # Build the Java application (skip tests)
+
+      - name: Set Up SSH Key for EC2
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_IP }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to AWS EC2
+        run: |
+          # Copy the JAR file to the EC2 instance
+          scp -i ~/.ssh/id_rsa target/your-app.jar ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }}:/home/${{ secrets.EC2_USER }}/app.jar
+          
+          # SSH into the EC2 instance and start the application
+          ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} << 'EOF'
+            # Install Java and Maven if not already installed on EC2
+            sudo yum update -y
+            sudo yum install java-17-openjdk maven -y
+
+            # Run the Java application in the background
+            nohup java -jar /home/${{ secrets.EC2_USER }}/app.jar > /home/${{ secrets.EC2_USER }}/app.log 2>&1 &
+          EOF
+
+      - name: Verify Deployment (Using Curl)
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} "curl -Is http://localhost:8080 | head -n 1"
+
+      - name: Provide Access Link
+        run: echo "Your application is accessible at: http://$${{ secrets.EC2_IP }}:8080"
