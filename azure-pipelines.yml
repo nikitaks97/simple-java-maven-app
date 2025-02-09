@@ -21,6 +21,10 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'install'
     options: "--no-transfer-progress"
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: $(System.DefaultWorkingDirectory)/
+    artifactName: WebApp
 
 - task: DownloadPipelineArtifact@2
   inputs:
