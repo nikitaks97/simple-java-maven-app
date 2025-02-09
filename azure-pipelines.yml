@@ -15,7 +15,7 @@ variables:
 steps:
 - task: MavenAuthenticate@0
   inputs:
-    artifactsFeeds: 'maven'
+    artifactsFeeds: 'java-sample'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
