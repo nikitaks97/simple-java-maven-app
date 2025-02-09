@@ -13,6 +13,9 @@ variables:
 - group: ado-artifact
 
 steps:
+- task: MavenAuthenticate@0
+  inputs:
+    artifactsFeeds: 'maven'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
