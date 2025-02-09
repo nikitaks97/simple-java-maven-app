@@ -71,7 +71,7 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>maven</id>
+			<id>java-sample</id>
 			<url>https://pkgs.dev.azure.com/mukesh3258/builds/_packaging/java-sample/maven/v1</url>
 			<releases>
 				<enabled>true</enabled>
@@ -83,7 +83,7 @@
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>maven</id>
+			<id>java-sample</id>
 			<url>https://pkgs.dev.azure.com/mukesh3258/builds/_packaging/java-sample/maven/v1</url>
 			<releases>
 				<enabled>true</enabled>
