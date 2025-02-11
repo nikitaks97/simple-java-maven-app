@@ -21,26 +21,4 @@ jobs:
           
       - name: Build with Maven
         run: mvn clean package -DskipTests  # Build the Java application (skip tests)
-
-      - name: Set Up SSH Key for EC2
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.EC2_IP }} >> ~/.ssh/known_hosts
-
-      - name: Deploy to AWS EC2
-        run: |
-          # Copy the JAR file to the EC2 instance
-          scp -i ~/.ssh/id_rsa target/your-app.jar ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }}:/home/${{ secrets.EC2_USER }}/app.jar
-          
-          # SSH into the EC2 instance and start the application
-          ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} << 'EOF'
-          # Run the Java application in the background
-          nohup java -jar /home/${{ secrets.EC2_USER }}/app.jar > /home/${{ secrets.EC2_USER }}/app.log 2>&1 &
-          EOF
-
-      - name: Verify Deployment (Using Curl)
-        run: |
-           ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP }} "curl -Is http://localhost:8080 | head -n 1"
-
+        
