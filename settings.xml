@@ -4,10 +4,19 @@
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>maven</id>
-      <username>${env.ADO_ARTIFACTS_USERNAME}</username>
-      <password>${env.ADO_ARTIFACTS_TOKEN}</password>
+      <id>jfrog</id>
+      <username>admin</username>
+      <password></password>
     </server>
   </servers>
+    <mirrors>
+    <mirror>
+      <id>jfrog</id>
+      <name>jfrog</name>
+      <url>http://localhost:8081/artifactory/virtual</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
 </settings>
 
