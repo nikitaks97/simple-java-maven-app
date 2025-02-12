@@ -4,10 +4,18 @@
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>maven</id>
-      <username>${env.ADO_ARTIFACTS_USERNAME}</username>
-      <password>${env.ADO_ARTIFACTS_TOKEN}</password>
+      <id>java</id>
+      <username>mukesh3258</username>
+      <password></password>
     </server>
   </servers>
+  <mirrors>
+    <mirror>
+      <id>java</id>
+      <name>java</name>
+      <url>https://pkgs.dev.azure.com/mukesh3258/_packaging/java/maven/v1</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
 </settings>
 
