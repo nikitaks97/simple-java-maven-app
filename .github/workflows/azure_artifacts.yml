@@ -1,6 +1,7 @@
 name: Java with Nexus Repository
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - all  
