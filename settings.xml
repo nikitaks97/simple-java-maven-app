@@ -4,16 +4,16 @@
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>java</id>
-      <username>mukesh3258</username>
-      <password></password>
+      <id>java_maven</id>
+      <username>azure</username>
+      <password>${AZURE_DEVOPS_TOKEN}</password>
     </server>
   </servers>
   <mirrors>
     <mirror>
-      <id>java</id>
-      <name>java</name>
-      <url>https://pkgs.dev.azure.com/mukesh3258/_packaging/java/maven/v1</url>
+      <id>java_maven</id>
+      <name>azure</name>
+      <url>https://pkgs.dev.azure.com/nikitaks997/_packaging/java_maven/maven/v1/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>

@@ -75,8 +75,8 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>java</id>
-			<url>https://pkgs.dev.azure.com/mukesh3258/_packaging/java/maven/v1</url>
+			<id>java_maven</id>
+			<url>https://pkgs.dev.azure.com/nikitaks997/_packaging/java_maven/maven/v1</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -87,8 +87,8 @@
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>java</id>
-			<url>https://pkgs.dev.azure.com/mukesh3258/_packaging/java/maven/v1</url>
+			<id>java_maven</id>
+			<url>https://pkgs.dev.azure.com/nikitaks997/_packaging/java_maven/maven/v1</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
