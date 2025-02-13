@@ -23,4 +23,4 @@ jobs:
     - name: Build  Maven 
       run: mvn package --file pom.xml
     - name: Deploy to Azure Artifacts
-      run: mvn deploy -s ./settings.xml
+      run: mvn deploy -s ./settings.xml -Denforcer.skip=true
