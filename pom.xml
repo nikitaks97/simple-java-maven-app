@@ -71,8 +71,8 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>java-sample</id>
-			<url>https://pkgs.dev.azure.com/mukesh3258/builds/_packaging/java-sample/maven/v1</url>
+			<id>simple-app</id>
+			<url>http://localhost:8081/repository/maven-private/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -83,8 +83,8 @@
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>java-sample</id>
-			<url>https://pkgs.dev.azure.com/mukesh3258/builds/_packaging/java-sample/maven/v1</url>
+			<id>simple-app</id>
+			<url>http://localhost:8081/repository/maven-private/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

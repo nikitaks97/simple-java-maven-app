@@ -4,9 +4,9 @@
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>maven</id>
-      <username>${env.ADO_ARTIFACTS_USERNAME}</username>
-      <password>${env.ADO_ARTIFACTS_TOKEN}</password>
+      <id>simple-app</id>
+      <username>admin</username>
+      <password>admin123</password>
     </server>
   </servers>
 </settings>
