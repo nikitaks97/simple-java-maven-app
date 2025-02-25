@@ -75,7 +75,7 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>simple-app</id>
+			<id>nexus-repo</id>
 			<url>http://localhost:8081/repository/maven-private/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -87,7 +87,7 @@
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>simple-app</id>
+			<id>nexus-repo</id>
 			<url>http://localhost:8081/repository/maven-private/</url>
 			<releases>
 				<enabled>true</enabled>
