@@ -5,9 +5,9 @@ name: Deploy to Azure Artifacts
 
 on:
   push:
-    branches: [ master, dev ]
+    branches: [ ado_new ]
   pull_request:
-    branches: [ master ]
+    branches: [ ado_new ]
   workflow_dispatch:
 
 jobs:
