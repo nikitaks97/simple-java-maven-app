@@ -22,7 +22,7 @@ jobs:
         java-version: '17'
         cache: 'maven'
     - name: Build and deploy to azure artifacts
-      run: mvn clean package deploy -s -Denforcer.skip=true ./settings.xml -B --file pom.xml
+      run: mvn clean package deploy -Denforcer.skip=true -s ./settings.xml -B --file pom.xml
       env:
           AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
     
