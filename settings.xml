@@ -6,7 +6,7 @@
     <server>
       <id>nexus-repo</id>
       <username>admin</username>
-      <password>fc7a92e2-b1b3-3059-a0b5-19d61779ae7b</password>
+      <password>admin123</password>
     </server>
   </servers>
 </settings>
